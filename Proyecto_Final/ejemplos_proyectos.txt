@@ -1,0 +1,33 @@
+-- Abajo hay ejemplos de como se deberia ver una ejecucion en GHCI de las
+-- funciones del proyecto.
+
+*Main> tablaVerdad 2
+[[True,True],[True,False],[False,True],[False,False]]
+
+*Main> tablaVerdad 3
+[[True,True,True],[True,True,False],[True,False,True],[True,False,False],[False,True,True],[False,True,False],[False,False,True],[False,False,False]]
+
+*Main> check (P 2) [True,False,True]
+False
+
+*Main> check (P 2) [True,True,True]
+True
+
+*Main> check (P 2) [True]
+*** Exception: Prelude.(!!): index too large
+
+
+*Main> check (And (P 1) (P 2)) [True, False]
+False
+
+*Main> check (And (P 1) (P 2)) [True, True, False]
+True
+
+*Main> check (And (P 1) (P 2)) [True, False, True]
+False
+
+*Main> esValida (And (P 1) (P 2))
+False
+
+*Main> evaluar (And (P 1) (P 2))
+"Es Satisfacible pero no Valida"
